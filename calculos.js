@@ -28,9 +28,10 @@ let lista = [2,8,9,7,5,6];
 resultadoSuma1 = suma(5, 10);
 resultadoSuma2 = suma(20, 2);
 resultadoDivision = division(20 , 2);
+// Si realizo division(20 , 0) el resultado me va a dar como valor Infinity
 resultadoMayor = mayor(lista);
 
-console.log(resultadoSuma1);
-console.log(resultadoSuma2);
-console.log(resultadoDivision);
-console.log(resultadoMayor);
+console.log("La suma de 5 y 10 es: " + resultadoSuma1);
+console.log("La suma de 20 y 2 es: " + resultadoSuma2);
+console.log("La división  de 20 y 2 es: " + resultadoDivision);
+console.log("El mayor valor entre 2, 8, 9, 7, 5 y 6 es: " + resultadoMayor);
