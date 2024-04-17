@@ -5,15 +5,15 @@ import express  from "express";
 const app = express();
 
 app.get("/", (req, res) => {
-    res.send("Lautaro Pappalardo")
+    res.status(200).send("Lautaro Pappalardo")
 })
 
 app.get("/materia", (req, res) => {
-    res.send("Materia: Aplicaciones Híbridas")
+    res.status(200).send("Materia: Aplicaciones Híbridas")
 })
 
 app.get("/profesor", (req, res) => {
-    res.send("Profesor: Belen Marcos Galban")
+    res.status(200).send("Profesor: Belen Marcos Galban")
 })
 
 // Parte 2
@@ -25,9 +25,9 @@ const stack = [
 app.get("/stack/:tecnologia", (req, res) => {
     let tecnologia = stack.find(tecnologia => tecnologia == req.params.tecnologia)
     if(!tecnologia){
-        res.status(200).send("a leer la documentacion entonces..")
+        res.status(400).send("a leer la documentacion entonces..")
     }else{
-        res.status(201).send("donde te dejo el CV?")
+        res.status(200).send("donde te dejo el CV?")
     }
 })
 
@@ -84,7 +84,7 @@ app.get("/productos", (req, res) => {
 app.get("/productos/:id", (req, res) => {
     let producto = productos.find(producto => producto.id == req.params.id)
     if(!producto){
-        res.status(201).send("No se encontro el producto solicitado")
+        res.status(404).send("No se encontro el producto solicitado")
     }else{
         res.status(200).send(producto)
     }
@@ -93,7 +93,7 @@ app.get("/productos/:id", (req, res) => {
 // Parte 1
 
 app.get("*", (req, res) => {
-    res.send("Lo sentimos, pagina no encontrada.")
+    res.status(404).send("Lo sentimos, pagina no encontrada.")
 })
 
 const server = app.listen(2030, () => console.log("running on port http://localhost:2030"))
